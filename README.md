@@ -6,6 +6,7 @@ Este repositorio centraliza mi proceso de aprendizaje y documentación sobre An�
 
 - [Importación de conjuntos de datos](./Importación%20de%20conjuntos%20de%20datos)
 - [Gestión de Datos](./Gestion%20de%20Datos)
+- [Análisis exploratorio de datos](./Análisis%20exploratorio%20de%20datos)
 - [Ejercicios Prácticos](./Ejercicios_Practicos)
 - [Recursos y Utilidades](./Recursos)
 
@@ -30,4 +31,5 @@ pip install pandas numpy
 ## Licencia
 
 Este proyecto es de uso personal y de estudio, y está distribuido bajo la Licencia MIT.
+
 
