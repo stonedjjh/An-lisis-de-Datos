@@ -1,4 +1,4 @@
-﻿# 1. Estandarización, Normalización y Agrupación de Datos
+﻿# Estandarización, Normalización y Agrupación de Datos
 
 Este documento resume las técnicas fundamentales de gestión y preprocesamiento de datos utilizando Pandas en Python, orientadas a preparar los datos para su posterior análisis y modelado estadístico.
 
