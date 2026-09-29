@@ -1,4 +1,4 @@
-﻿# Análisis de Datos
+# Análisis de Datos
 
 Este repositorio centraliza mi proceso de aprendizaje y documentación sobre Análisis de Datos. Aquí iré creando entradas y registros de los diferentes temas, ejercicios y proyectos prácticos que vaya estudiando.
 
@@ -9,6 +9,7 @@ Este repositorio centraliza mi proceso de aprendizaje y documentación sobre An�
 - [Análisis exploratorio de datos](./Análisis%20exploratorio%20de%20datos)
 - [Ejercicios Prácticos](./Ejercicios_Practicos)
 - [Recursos y Utilidades](./Recursos)
+- [Glosario de Términos (Enfoque Developer)](./GLOSARIO.md)
 
 ## Objetivos del Repositorio
 
