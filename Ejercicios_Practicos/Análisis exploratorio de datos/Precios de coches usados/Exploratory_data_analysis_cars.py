@@ -223,7 +223,9 @@ If we want to know, on average, which type of drive wheel is most valuable, we c
 We can select the columns 'drive-wheels', 'body-style' and 'price', then assign it to the variable "df_group_one".
 '''
 
-print("the dataframe of drive-wheels, body-style and price is:\n",df_group_one = df[['drive-wheels','body-style','price']])
+df_group_one = df[['drive-wheels','body-style','price']]
+
+print("the dataframe of drive-wheels, body-style and price is:\n",df_group_one)
 
 # We can then calculate the average price for each of the different categories of data.
 

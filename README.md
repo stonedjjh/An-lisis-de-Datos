@@ -25,12 +25,10 @@ A medida que avance en los temas, se irán agregando carpetas y archivos especí
 
 Para ejecutar los ejemplos de código que se irán añadiendo, se recomienda tener instalado Python junto con las bibliotecas estándar de análisis de datos:
 
-``bash
-pip install pandas numpy
-``
+```bash
+pip install pandas numpy matplotlib seaborn scipy
+```
 
 ## Licencia
 
 Este proyecto es de uso personal y de estudio, y está distribuido bajo la Licencia MIT.
-
-
