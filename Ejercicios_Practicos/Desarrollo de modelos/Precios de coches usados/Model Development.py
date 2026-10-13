@@ -607,7 +607,7 @@ lm.fit(X, Y)
 
 # Produce a prediction:
 
-yhat=lm.predict(new_input)
+yhat = lm.predict(new_input)
 print(yhat[0:5])
 
 # We can plot the data:

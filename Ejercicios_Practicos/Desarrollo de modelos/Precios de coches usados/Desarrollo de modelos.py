@@ -341,9 +341,18 @@ Código a ejecutar:
     plt.ylim(0,)
     plt.show()
 
-(Nota: Cierre la ventana gráfica que se abrirá para continuar con el script).
+¿Qué debemos observar en este gráfico?
+- Pendiente de la regresión: La pendiente es negativa, lo que indica que el precio está correlacionado
+  negativamente con highway-mpg (a mayor rendimiento de combustible, menor precio del vehículo).
+- Dispersión de los datos: Al observar un gráfico de regresión, debemos prestar atención a qué tan
+  dispersos están los puntos alrededor de la línea. Esto indica la varianza de los datos y si el modelo
+  lineal es el mejor ajuste. Si los datos están demasiado dispersos o alejados de la línea, un modelo
+  lineal simple podría no ser suficiente.
+
+(A continuación se abrirá la ventana gráfica. Podrá leer esta explicación en su terminal mientras examina la figura.
+Ciérrela cuando termine para continuar).
 ''')
-input("Presione Enter para mostrar el gráfico de regresión (highway-mpg)...")
+input("Presione Enter para abrir y visualizar el gráfico de regresión (highway-mpg)...")
 width = 12
 height = 10
 plt.figure(figsize=(width, height))
@@ -352,16 +361,7 @@ plt.ylim(0,)
 plt.show()
 
 print('''
-Podemos ver en este gráfico que el precio está correlacionado negativamente con highway-mpg,
-ya que la pendiente de la regresión es negativa.
-
-Un aspecto importante a tener en cuenta al observar un gráfico de regresión es prestar atención
-a qué tan dispersos están los puntos de datos alrededor de la línea de regresión. Esto le dará
-una buena indicación de la varianza de los datos y de si un modelo lineal sería el mejor ajuste o no.
-Si los datos están demasiado alejados de la línea, es posible que este modelo lineal no sea el más
-adecuado para estos datos.
-
-Comparemos este gráfico con el gráfico de regresión de "peak-rpm".
+Comparemos este gráfico con el gráfico de regresión de "peak-rpm":
 
 Código a ejecutar:
     plt.figure(figsize=(width, height))
@@ -369,20 +369,21 @@ Código a ejecutar:
     plt.ylim(0,)
     plt.show()
 
-(Nota: Cierre la ventana gráfica para continuar).
+¿Qué debemos observar al comparar "peak-rpm" vs "highway-mpg"?
+- En "highway-mpg", los puntos están mucho más cercanos a la línea ajustada y descienden de forma consistente.
+- En "peak-rpm", los puntos presentan una dispersión mucho más amplia alrededor de la línea predicha,
+  siendo mucho más difícil determinar si los puntos aumentan o disminuyen respecto al precio.
+- Por tanto, "highway-mpg" parece ser un predictor lineal mucho más claro y fuerte que "peak-rpm".
+
+(A continuación se abrirá la ventana gráfica. Ciérrela cuando termine de analizarla para continuar).
 ''')
-input("Presione Enter para mostrar el gráfico de regresión (peak-rpm)...")
+input("Presione Enter para abrir y visualizar el gráfico de regresión (peak-rpm)...")
 plt.figure(figsize=(width, height))
 sns.regplot(x="peak-rpm", y="price", data=df)
 plt.ylim(0,)
 plt.show()
 
 print('''
-Al comparar el gráfico de regresión de "peak-rpm" y "highway-mpg", vemos que los puntos para
-"highway-mpg" están mucho más cerca de la línea generada y, en promedio, disminuyen. Los puntos para
-"peak-rpm" tienen mayor dispersión alrededor de la línea predicha y es mucho más difícil determinar
-si los puntos disminuyen o aumentan a medida que se incrementa "peak-rpm".
-
 Pregunta #3:
 Dados los gráficos de regresión anteriores, ¿está "peak-rpm" o "highway-mpg" más fuertemente
 correlacionado con "price"? Utilice el método ".corr()" para verificar su respuesta.
@@ -423,19 +424,19 @@ Código a ejecutar:
     sns.residplot(x=df['highway-mpg'], y=df['price'])
     plt.show()
 
-(Nota: Cierre la ventana gráfica para continuar).
+¿Qué nos dice este gráfico al observarlo?
+En el gráfico de residuos para "highway-mpg", observaremos que los residuos NO están distribuidos
+de manera aleatoria alrededor del eje x (cero), sino que muestran una curvatura clara.
+Esto revela que la varianza no es constante y sugiere que un modelo no lineal (polinómico) podría
+ser más adecuado para estos datos que una regresión lineal simple.
+
+(A continuación se abrirá la ventana gráfica. Podrá consultar esta explicación mientras observa la figura.
+Ciérrela para continuar).
 ''')
-input("Presione Enter para mostrar el gráfico de residuos...")
+input("Presione Enter para abrir y visualizar el gráfico de residuos...")
 plt.figure(figsize=(width, height))
 sns.residplot(x=df['highway-mpg'], y=df['price'])
 plt.show()
-
-print('''
-¿Qué nos dice este gráfico?
-Podemos ver en este gráfico de residuos que los residuos no están distribuidos aleatoriamente
-alrededor del eje x, lo que nos lleva a pensar que tal vez un modelo no lineal sea más
-apropiado para estos datos.
-''')
 print("-" * 70)
 input("Presione Enter para continuar...")
 
@@ -470,9 +471,20 @@ Código a ejecutar:
     plt.show()
     plt.close()
 
-(Nota: Cierre la ventana gráfica para continuar).
+¿Qué debemos observar en este gráfico de distribución?
+Compararemos dos distribuciones:
+- Rojo: Distribución de los valores reales de precio (df['price']).
+- Azul: Distribución de los valores ajustados/predichos por el modelo multivariante (Y_hat).
+
+Interpretación:
+Podemos ver que los valores ajustados son razonablemente cercanos a los valores reales, ya que
+las dos distribuciones se superponen de manera considerable. Sin embargo, definitivamente hay
+margen de mejora en rangos extremos donde las curvas difieren.
+
+(A continuación se abrirá la ventana gráfica. Podrá consultar esta explicación mientras observa la figura.
+Ciérrela para continuar).
 ''')
-input("Presione Enter para mostrar el gráfico de distribución...")
+input("Presione Enter para abrir y visualizar el gráfico de distribución...")
 plt.figure(figsize=(width, height))
 ax1 = sns.distplot(df['price'], hist=False, color="r", label="Valor Real")
 sns.distplot(Y_hat, hist=False, color="b", label="Valores Ajustados", ax=ax1)
@@ -481,12 +493,6 @@ plt.xlabel('Precio (en dólares)')
 plt.ylabel('Proporción de Automóviles')
 plt.show()
 plt.close()
-
-print('''
-Podemos ver que los valores ajustados son razonablemente cercanos a los valores reales,
-ya que las dos distribuciones se superponen considerablemente. Sin embargo, definitivamente
-hay margen de mejora.
-''')
 print("-" * 70)
 input("Presione Enter para continuar...")
 
@@ -558,20 +564,22 @@ f = np.polyfit(x, y, 3)
 p = np.poly1d(f)
 print("Salida:")
 print(p)
-print("\n" + "-" * 70)
-input("Presione Enter para graficar la función polinómica cúbica...")
-
-# Graficar la función:
-PlotPolly(p, x, y, 'highway-mpg')
-
-print("Coeficientes generados con np.polyfit(x, y, 3):")
+print("\nCoeficientes generados con np.polyfit(x, y, 3):")
 print(np.polyfit(x, y, 3))
 
 print('''
-Ya podemos ver a partir del gráfico que este modelo polinómico tiene un mejor
-desempeño que el modelo lineal. Esto se debe a que la función polinómica generada
-"acierta" o pasa más cerca de un mayor número de puntos de datos.
+¿Qué debemos observar en este gráfico polinómico cúbico?
+Observarás que este modelo polinómico tiene un mejor desempeño visual que el modelo lineal simple.
+Esto se debe a que la función polinómica (la línea continua) se flexiona y pasa mucho más cerca
+de un mayor número de puntos de datos, adaptándose con precisión a la curvatura de la relación.
+
+(A continuación se abrirá la gráfica. Ciérrela para continuar).
 ''')
+print("-" * 70)
+input("Presione Enter para abrir y visualizar la función polinómica cúbica...")
+
+# Graficar la función:
+PlotPolly(p, x, y, 'highway-mpg')
 print("-" * 70)
 input("Presione Enter para continuar...")
 
@@ -592,8 +600,17 @@ f1 = np.polyfit(x, y, 11)
 p1 = np.poly1d(f1)
 print("Salida:")
 print(p1)
-print("\nPresione Enter para mostrar la gráfica del polinomio de orden 11...")
-input()
+
+print('''
+¿Qué debemos observar en el polinomio de orden 11?
+Al aumentar el grado a 11, la curva intenta serpentear para pasar por casi cada punto individual.
+En los extremos o zonas con pocos puntos de datos, las curvas de grado alto suelen oscilar
+abruptamente, lo cual es una señal clara de sobreajuste (overfitting).
+
+(A continuación se abrirá la gráfica. Ciérrela para continuar).
+''')
+print("-" * 70)
+input("Presione Enter para abrir y visualizar la gráfica del polinomio de orden 11...")
 PlotPolly(p1, x, y, 'Highway MPG')
 print("-" * 70)
 input("Presione Enter para continuar...")
@@ -894,9 +911,14 @@ print('''
 Crear una nueva entrada:
 
 Código a ejecutar:
-    new_input = np.arange(1, 100, 1).reshape(-1, 1)
+    new_input = pd.DataFrame(np.arange(1, 100, 1), columns=['highway-mpg'])
+
+Nota importante sobre Scikit-Learn:
+Al entrenar 'lm.fit(X, Y)', X era un DataFrame con el nombre de columna 'highway-mpg'.
+Por ello, definimos 'new_input' como un DataFrame con el mismo nombre de columna para
+evitar la advertencia (UserWarning) de Scikit-Learn sobre nombres de características (feature names).
 ''')
-new_input = np.arange(1, 100, 1).reshape(-1, 1)
+new_input = pd.DataFrame(np.arange(1, 100, 1), columns=['highway-mpg'])
 
 print('''
 Ajustar el modelo:
@@ -917,18 +939,31 @@ yhat = lm.predict(new_input)
 print("Salida:")
 print(yhat[0:5])
 print("\n" + "-" * 70)
-input("Presione Enter para graficar la predicción continua...")
 
 print('''
-Podemos graficar los datos:
+Podemos graficar los datos de predicción continua:
 
 Código a ejecutar:
     plt.plot(new_input, yhat)
+    plt.xlabel('Highway MPG')
+    plt.ylabel('Precio Predicho')
+    plt.title('Predicción Continua con Regresión Lineal Simple')
     plt.show()
 
-(Nota: Cierre la ventana gráfica para continuar).
+¿Qué muestra este gráfico?
+Al graficar 'new_input' frente a 'yhat', observamos la recta de predicción continua generada
+por el modelo de regresión lineal simple a lo largo de un rango de 1 a 100 en highway-mpg.
+La gráfica ilustra visualmente la relación inversa constante: a mayor rendimiento (mpg),
+el modelo predice un precio proporcionalmente menor.
+
+(A continuación se abrirá la ventana gráfica. Podrá consultar esta explicación mientras observa la figura.
+Ciérrela para continuar con la toma de decisiones).
 ''')
+input("Presione Enter para abrir y visualizar el gráfico de predicción continua...")
 plt.plot(new_input, yhat)
+plt.xlabel('Highway MPG')
+plt.ylabel('Precio Predicho')
+plt.title('Predicción Continua con Regresión Lineal Simple')
 plt.show()
 
 print('''
