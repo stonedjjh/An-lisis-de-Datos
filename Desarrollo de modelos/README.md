@@ -26,6 +26,7 @@ Este módulo aborda la formulación, entrenamiento, diagnóstico y optimización
 | 5 | [5. Medidas para la Evaluación en la Muestra](./5_Medidas_para_la_evaluaci%C3%B3n_en_la_muestra.md) | Métricas numéricas de bondad de ajuste: Error Cuadrático Medio (`mean_squared_error`), Coeficiente de Determinación ($R^2$) mediante `.score()`, comparación geométrica de áreas de error frente a la media, e interpretación porcentual de la varianza explicada. |
 | 6 | [6. Predicción y Toma de Decisiones](./6_Predicci%C3%B3n_y_toma_de_decisiones.md) | Criterios integrales de selección de modelos: validación de sentido común, detección de predicciones negativas con `np.arange`, diagnóstico visual combinado, escala de $R^2$, y por qué un menor MSE en la muestra no siempre implica un mejor modelo (sesgo de sobreajuste). |
 | 7 | [Resumen de la Lección](./Resumen_de_la_lecci%C3%B3n.md) | Síntesis conceptual exhaustiva de todo el módulo: fundamentos lineales, diagnóstico visual de residuos y KDE, transformación polinómica, pipelines, métricas cuantitativas (MSE, $R^2$) y directrices de toma de decisiones. |
+| 8 | [Hoja de Trucos: Desarrollo de Modelos](./Hoja_de_trucos_Desarrollo_de_modelos.md) | Ficha de referencia rápida con tabla comparativa de procesos, descripciones y ejemplos de código para Scikit-Learn, NumPy y Seaborn. |
 
 ---
 
